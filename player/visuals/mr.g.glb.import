@@ -15,8 +15,12 @@ dest_files=["res://.godot/imported/mr.g.glb-ef3c57e2ac5106b938f538ef6a437fcc.scn
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -28,20 +32,27 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "materials": {
 "Eyes": {
 "use_external/enabled": true,
-"use_external/path": "res://player/visuals/Eyes.tres"
+"use_external/fallback_path": "res://player/visuals/Eyes.tres",
+"use_external/path": "uid://rph7hvv0o8f3"
 },
 "Hands": {
 "use_external/enabled": true,
-"use_external/path": "res://player/visuals/Hands.tres"
+"use_external/fallback_path": "res://player/visuals/Hands.tres",
+"use_external/path": "uid://dthhy1nw8io40"
 },
 "Head": {
 "use_external/enabled": true,
-"use_external/path": "res://player/visuals/Head.tres"
+"use_external/fallback_path": "res://player/visuals/Head.tres",
+"use_external/path": "uid://kypse11uh4u7"
 }
 }
 }
