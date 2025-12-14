@@ -32,7 +32,7 @@ project/assembly_name="guide_video"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/guide/plugin.cfg")
 
 [input]
 
