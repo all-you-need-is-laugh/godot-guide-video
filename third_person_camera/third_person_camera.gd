@@ -6,6 +6,8 @@ extends Node3D
 	set(value):
 		active = value
 		_refresh()	
+		
+@export var rotate_action: GUIDEAction
 
 @onready var _pitch:Node3D = %Pitch
 @onready var _camera_3d = %Camera3D
@@ -15,6 +17,7 @@ func _ready():
 
 
 func _process(delta):
+	_pitch.rotation_degrees.x = clamp(_pitch.rotation_degrees.x + rotate_action.value_axis_1d, -90, 0)
 	
 	# follow movements of the player
 	if is_instance_valid(follow):
