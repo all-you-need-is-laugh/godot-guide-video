@@ -1,21 +1,35 @@
 extends CharacterBody3D
 
 @export var movement_speed:float = 5
+@export var jump_speed:float = 5
 @export var bolt_scene:PackedScene
 
 @export_group('Input Actions')
 @export var move_action:GUIDEAction
 @export var rotate_action: GUIDEAction
+@export var shoot_action: GUIDEAction
+@export var jump_action: GUIDEAction
 
 @onready var _right_hand:Node3D = %RightHand
 @onready var _left_hand:Node3D = %LeftHand
 
-func _process(_delta:float) -> void:
+func _ready() -> void:
+	shoot_action.triggered.connect(_fire_magic_bolt)
+
+func _process(delta:float) -> void:
+	var yVelocity = velocity.y
 	velocity = basis * move_action.value_axis_3d * movement_speed
 	rotation_degrees.y += rotate_action.value_axis_1d
 
+	if is_on_floor():
+		if jump_action.is_triggered():
+			yVelocity = jump_speed
+		else:
+			yVelocity = 0
 	if not is_on_floor():
-		velocity.y = -9.81
+		yVelocity -= 9.81 * delta
+		
+	velocity.y = yVelocity
 
 	move_and_slide()
 	
