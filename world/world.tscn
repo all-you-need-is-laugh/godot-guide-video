@@ -1,10 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1mt0xkw8x8bx"]
+[gd_scene load_steps=21 format=3 uid="uid://b1mt0xkw8x8bx"]
 
 [ext_resource type="PackedScene" uid="uid://conoirvjdhcuy" path="res://tree/tree.tscn" id="1_uwhke"]
 [ext_resource type="Script" uid="uid://1rc31kpmc614" path="res://world/game.gd" id="1_xlvy7"]
 [ext_resource type="PackedScene" uid="uid://buxsxs7xnqsgd" path="res://rock/rock.blend" id="2_l7ms7"]
+[ext_resource type="Resource" uid="uid://dkqs5e0esoul6" path="res://input/build_mode/build_mode.tres" id="2_mad0u"]
 [ext_resource type="Resource" uid="uid://kt276q6jwi2h" path="res://input/walk_mode/walk_mode.tres" id="2_ov2xu"]
 [ext_resource type="PackedScene" uid="uid://c6tcyhwajlf4p" path="res://player/player.tscn" id="3_b2tcc"]
+[ext_resource type="Resource" uid="uid://w08nn6iwxohj" path="res://input/walk_mode/switch_to_build_mode.tres" id="4_dqqhb"]
+[ext_resource type="Resource" uid="uid://dcfaiyshcmul6" path="res://input/build_mode/switch_to_walk_mode.tres" id="5_b2suy"]
 [ext_resource type="PackedScene" uid="uid://dtqvqvnatk4t6" path="res://enemy/enemy.tscn" id="6_6lg28"]
 [ext_resource type="Script" uid="uid://d3n2j85f4rjf4" path="res://spawner/spawner.gd" id="7_15aqk"]
 [ext_resource type="PackedScene" uid="uid://clrwimsjk1ujv" path="res://third_person_camera/third_person_camera.tscn" id="8_iy3gd"]
@@ -45,7 +48,10 @@ filter_walkable_low_height_spans = true
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_xlvy7")
+build_mode = ExtResource("2_mad0u")
 walk_mode = ExtResource("2_ov2xu")
+switch_to_build_mode_action = ExtResource("4_dqqhb")
+switch_to_walk_mode_action = ExtResource("5_b2suy")
 
 [node name="World" type="Node3D" parent="." groups=["nav_mesh"]]
 

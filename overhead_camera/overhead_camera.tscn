@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bipx2p3un6hej"]
+[gd_scene load_steps=3 format=3 uid="uid://bipx2p3un6hej"]
 
-[ext_resource type="Script" path="res://overhead_camera/overhead_camera.gd" id="1_l4ael"]
+[ext_resource type="Script" uid="uid://birr5sw7sce82" path="res://overhead_camera/overhead_camera.gd" id="1_l4ael"]
+[ext_resource type="Resource" uid="uid://dkp1smo8x6wxu" path="res://input/build_mode/move_camera.tres" id="2_p2gyn"]
 
 [node name="OverheadCamera" type="Node3D"]
 script = ExtResource("1_l4ael")
+move_camera_action = ExtResource("2_p2gyn")
 
 [node name="Offset" type="Node3D" parent="."]
 unique_name_in_owner = true

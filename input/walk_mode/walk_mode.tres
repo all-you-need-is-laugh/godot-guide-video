@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=50 format=3 uid="uid://kt276q6jwi2h"]
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=55 format=3 uid="uid://kt276q6jwi2h"]
 
 [ext_resource type="Script" path="res://addons/guide/guide_action_mapping.gd" id="1_jl3u0"]
 [ext_resource type="Resource" uid="uid://c0ai3jtsno512" path="res://input/walk_mode/move.tres" id="2_3vt7h"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://vgjlx6p007lp" path="res://addons/guide/inputs/guide_input_mouse_button.gd" id="15_ow1ia"]
 [ext_resource type="Script" uid="uid://b52rqq28tuqpg" path="res://addons/guide/triggers/guide_trigger_pressed.gd" id="16_8h5up"]
 [ext_resource type="Resource" uid="uid://btfw1bimwj4n3" path="res://input/walk_mode/jump.tres" id="17_q3i7e"]
+[ext_resource type="Resource" uid="uid://w08nn6iwxohj" path="res://input/walk_mode/switch_to_build_mode.tres" id="18_xp6ni"]
 
 [sub_resource type="Resource" id="Resource_vjnfi"]
 script = ExtResource("4_2y8a2")
@@ -150,8 +151,27 @@ triggers = Array[ExtResource("6_e605k")]([SubResource("Resource_yachw")])
 script = ExtResource("1_jl3u0")
 action = ExtResource("17_q3i7e")
 input_mappings = Array[ExtResource("3_it6in")]([SubResource("Resource_yfeug")])
+metadata/_guide_input_mappings_collapsed = true
+
+[sub_resource type="Resource" id="Resource_mg5aa"]
+script = ExtResource("15_ow1ia")
+button = 2
+
+[sub_resource type="Resource" id="Resource_eu7oj"]
+script = ExtResource("16_8h5up")
+
+[sub_resource type="Resource" id="Resource_hbtnn"]
+script = ExtResource("3_it6in")
+input = SubResource("Resource_mg5aa")
+triggers = Array[ExtResource("6_e605k")]([SubResource("Resource_eu7oj")])
+
+[sub_resource type="Resource" id="Resource_6o17h"]
+script = ExtResource("1_jl3u0")
+action = ExtResource("18_xp6ni")
+input_mappings = Array[ExtResource("3_it6in")]([SubResource("Resource_hbtnn")])
+metadata/_guide_input_mappings_collapsed = true
 
 [resource]
 script = ExtResource("2_w2r4p")
-mappings = Array[ExtResource("1_jl3u0")]([SubResource("Resource_8h5up"), SubResource("Resource_utrlr"), SubResource("Resource_5bkw4"), SubResource("Resource_5bva7"), SubResource("Resource_b6iyi")])
+mappings = Array[ExtResource("1_jl3u0")]([SubResource("Resource_8h5up"), SubResource("Resource_utrlr"), SubResource("Resource_5bkw4"), SubResource("Resource_5bva7"), SubResource("Resource_b6iyi"), SubResource("Resource_6o17h")])
 metadata/_guide_action_mappings_collapsed = false
