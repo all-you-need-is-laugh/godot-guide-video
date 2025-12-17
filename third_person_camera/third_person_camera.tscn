@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://clrwimsjk1ujv"]
 
 [ext_resource type="Script" uid="uid://blhxk0lk0f3rg" path="res://third_person_camera/third_person_camera.gd" id="1_5xkjr"]
-[ext_resource type="Resource" uid="uid://dc4es0t6upoyj" path="res://input/rotate_camera.tres" id="2_j6m1w"]
+[ext_resource type="Resource" uid="uid://dc4es0t6upoyj" path="res://input/walk_mode/rotate_camera.tres" id="2_j6m1w"]
 
 [node name="ThirdPersonCamera" type="Node3D"]
 script = ExtResource("1_5xkjr")

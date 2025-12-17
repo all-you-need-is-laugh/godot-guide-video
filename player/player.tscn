@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dq17l41wkxbby" path="res://player/player.gd" id="1_acb4n"]
 [ext_resource type="PackedScene" uid="uid://vdvsb80m0kj6" path="res://bolt/bolt.tscn" id="2_tn8a6"]
 [ext_resource type="PackedScene" uid="uid://4kb86lxbov4v" path="res://player/visuals/mr.g.glb" id="3_mvgyj"]
-[ext_resource type="Resource" uid="uid://c0ai3jtsno512" path="res://input/move.tres" id="3_yw30f"]
-[ext_resource type="Resource" uid="uid://6d2wdv6tfoo6" path="res://input/rotate_player.tres" id="4_qjkh3"]
+[ext_resource type="Resource" uid="uid://c0ai3jtsno512" path="res://input/walk_mode/move.tres" id="3_yw30f"]
+[ext_resource type="Resource" uid="uid://6d2wdv6tfoo6" path="res://input/walk_mode/rotate_player.tres" id="4_qjkh3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ua7xj"]
 radius = 1.38627
