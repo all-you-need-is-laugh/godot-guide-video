@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var movement_speed:float = 5
-@export var jump_speed:float = 5
+@export var jump_speed:float = 10
 @export var bolt_scene:PackedScene
 
 @export_group('Input Actions')
