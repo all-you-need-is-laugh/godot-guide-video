@@ -17,7 +17,7 @@ func _ready():
 
 
 func _process(delta):
-	_pitch.rotation_degrees.x = clamp(_pitch.rotation_degrees.x + rotate_action.value_axis_1d, -90, 0)
+	_pitch.rotation_degrees.x = clamp(_pitch.rotation_degrees.x + rotate_action.value_axis_1d, -90, -15)
 	
 	# follow movements of the player
 	if is_instance_valid(follow):
