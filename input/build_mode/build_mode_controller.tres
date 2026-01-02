@@ -1,0 +1,174 @@
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=54 format=3 uid="uid://bh3xwm7jmaipn"]
+
+[ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_lwcvu"]
+[ext_resource type="Resource" uid="uid://dcfaiyshcmul6" path="res://input/build_mode/switch_to_walk_mode.tres" id="2_3a3db"]
+[ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="3_4sh1a"]
+[ext_resource type="Script" uid="uid://rvttn472ix6v" path="res://addons/guide/inputs/guide_input_joy_button.gd" id="4_a2gvu"]
+[ext_resource type="Script" uid="uid://bl8rjl4oaldje" path="res://addons/guide/modifiers/guide_modifier.gd" id="5_bhoci"]
+[ext_resource type="Script" uid="uid://x74mnwgr08a7" path="res://addons/guide/triggers/guide_trigger.gd" id="6_bgsgr"]
+[ext_resource type="Script" uid="uid://b52rqq28tuqpg" path="res://addons/guide/triggers/guide_trigger_pressed.gd" id="7_aghng"]
+[ext_resource type="Resource" uid="uid://dkp1smo8x6wxu" path="res://input/build_mode/move_camera.tres" id="8_7d4ih"]
+[ext_resource type="Script" uid="uid://doauobik3xyea" path="res://addons/guide/inputs/guide_input_joy_axis_2d.gd" id="9_7fy6f"]
+[ext_resource type="Script" uid="uid://bm5gjgadon6hb" path="res://addons/guide/modifiers/guide_modifier_input_swizzle.gd" id="10_pd5mj"]
+[ext_resource type="Script" uid="uid://c47lkb48itd6l" path="res://addons/guide/modifiers/guide_modifier_deadzone.gd" id="11_6jhcc"]
+[ext_resource type="Resource" uid="uid://7x24on2ykiwy" path="res://input/build_mode/select_tower.tres" id="11_cjap1"]
+[ext_resource type="Resource" uid="uid://q86e7eilta5h" path="res://input/build_mode/place_tower.tres" id="12_xym3o"]
+[ext_resource type="Resource" uid="uid://bxn3t46e0qm13" path="res://input/build_mode/cancel_tower_placement.tres" id="14_o5b6g"]
+[ext_resource type="Resource" uid="uid://dlx8v3ebe1jjf" path="res://input/build_mode/tower_position.tres" id="15_qu33c"]
+[ext_resource type="Script" uid="uid://0ubnfkes0d4r" path="res://addons/guide/modifiers/guide_modifier_virtual_cursor.gd" id="16_lwcvu"]
+[ext_resource type="Script" uid="uid://cw8qjwdktercg" path="res://addons/guide/modifiers/guide_modifier_3d_coordinates.gd" id="17_w7on1"]
+[ext_resource type="Resource" uid="uid://4hthdgafndf4" path="res://input/build_mode/tower_position_ui.tres" id="18_gl4hd"]
+[ext_resource type="Script" uid="uid://vho2v7ax07ef" path="res://addons/guide/modifiers/guide_modifier_canvas_coordinates.gd" id="19_e6cd6"]
+[ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="20_yqpyl"]
+
+[sub_resource type="Resource" id="Resource_6jhcc"]
+script = ExtResource("4_a2gvu")
+button = 3
+
+[sub_resource type="Resource" id="Resource_25d72"]
+script = ExtResource("7_aghng")
+
+[sub_resource type="Resource" id="Resource_y0ivf"]
+script = ExtResource("3_4sh1a")
+input = SubResource("Resource_6jhcc")
+triggers = Array[ExtResource("6_bgsgr")]([SubResource("Resource_25d72")])
+
+[sub_resource type="Resource" id="Resource_dp3g1"]
+script = ExtResource("1_lwcvu")
+action = ExtResource("2_3a3db")
+input_mappings = Array[ExtResource("3_4sh1a")]([SubResource("Resource_y0ivf")])
+metadata/_guide_input_mappings_collapsed = true
+
+[sub_resource type="Resource" id="Resource_lwcvu"]
+script = ExtResource("9_7fy6f")
+
+[sub_resource type="Resource" id="Resource_7fy6f"]
+script = ExtResource("10_pd5mj")
+order = 2
+
+[sub_resource type="Resource" id="Resource_7d4ih"]
+script = ExtResource("11_6jhcc")
+lower_threshold = 0.05
+
+[sub_resource type="Resource" id="Resource_3a3db"]
+script = ExtResource("3_4sh1a")
+input = SubResource("Resource_lwcvu")
+modifiers = Array[ExtResource("5_bhoci")]([SubResource("Resource_7fy6f"), SubResource("Resource_7d4ih")])
+
+[sub_resource type="Resource" id="Resource_1xaqf"]
+script = ExtResource("1_lwcvu")
+action = ExtResource("8_7d4ih")
+input_mappings = Array[ExtResource("3_4sh1a")]([SubResource("Resource_3a3db")])
+metadata/_guide_input_mappings_collapsed = false
+
+[sub_resource type="Resource" id="Resource_4sh1a"]
+script = ExtResource("4_a2gvu")
+button = 11
+
+[sub_resource type="Resource" id="Resource_wr8h6"]
+script = ExtResource("7_aghng")
+
+[sub_resource type="Resource" id="Resource_y2mly"]
+script = ExtResource("3_4sh1a")
+input = SubResource("Resource_4sh1a")
+triggers = Array[ExtResource("6_bgsgr")]([SubResource("Resource_wr8h6")])
+
+[sub_resource type="Resource" id="Resource_e0bl2"]
+script = ExtResource("1_lwcvu")
+action = ExtResource("11_cjap1")
+input_mappings = Array[ExtResource("3_4sh1a")]([SubResource("Resource_y2mly")])
+metadata/_guide_input_mappings_collapsed = false
+
+[sub_resource type="Resource" id="Resource_05eys"]
+script = ExtResource("4_a2gvu")
+
+[sub_resource type="Resource" id="Resource_yscde"]
+script = ExtResource("7_aghng")
+
+[sub_resource type="Resource" id="Resource_artu8"]
+script = ExtResource("3_4sh1a")
+input = SubResource("Resource_05eys")
+triggers = Array[ExtResource("6_bgsgr")]([SubResource("Resource_yscde")])
+
+[sub_resource type="Resource" id="Resource_vq18b"]
+script = ExtResource("1_lwcvu")
+action = ExtResource("12_xym3o")
+input_mappings = Array[ExtResource("3_4sh1a")]([SubResource("Resource_artu8")])
+metadata/_guide_input_mappings_collapsed = false
+
+[sub_resource type="Resource" id="Resource_bhoci"]
+script = ExtResource("4_a2gvu")
+button = 1
+
+[sub_resource type="Resource" id="Resource_mshj6"]
+script = ExtResource("7_aghng")
+
+[sub_resource type="Resource" id="Resource_qbotv"]
+script = ExtResource("3_4sh1a")
+input = SubResource("Resource_bhoci")
+triggers = Array[ExtResource("6_bgsgr")]([SubResource("Resource_mshj6")])
+
+[sub_resource type="Resource" id="Resource_cinbs"]
+script = ExtResource("1_lwcvu")
+action = ExtResource("14_o5b6g")
+input_mappings = Array[ExtResource("3_4sh1a")]([SubResource("Resource_qbotv")])
+metadata/_guide_input_mappings_collapsed = false
+
+[sub_resource type="Resource" id="Resource_bgsgr"]
+script = ExtResource("9_7fy6f")
+x = 2
+y = 3
+
+[sub_resource type="Resource" id="Resource_lvpgd"]
+script = ExtResource("11_6jhcc")
+lower_threshold = 0.05
+
+[sub_resource type="Resource" id="Resource_cjap1"]
+script = ExtResource("16_lwcvu")
+scale = Vector3(1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_d8mle"]
+script = ExtResource("17_w7on1")
+collision_mask = 16
+
+[sub_resource type="Resource" id="Resource_woicy"]
+script = ExtResource("3_4sh1a")
+input = SubResource("Resource_bgsgr")
+modifiers = Array[ExtResource("5_bhoci")]([SubResource("Resource_lvpgd"), SubResource("Resource_cjap1"), SubResource("Resource_d8mle")])
+
+[sub_resource type="Resource" id="Resource_3t21u"]
+script = ExtResource("1_lwcvu")
+action = ExtResource("15_qu33c")
+input_mappings = Array[ExtResource("3_4sh1a")]([SubResource("Resource_woicy")])
+metadata/_guide_input_mappings_collapsed = false
+
+[sub_resource type="Resource" id="Resource_aghng"]
+script = ExtResource("9_7fy6f")
+x = 2
+y = 3
+
+[sub_resource type="Resource" id="Resource_pd5mj"]
+script = ExtResource("11_6jhcc")
+lower_threshold = 0.05
+
+[sub_resource type="Resource" id="Resource_xym3o"]
+script = ExtResource("16_lwcvu")
+scale = Vector3(1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_0x723"]
+script = ExtResource("19_e6cd6")
+
+[sub_resource type="Resource" id="Resource_4chjg"]
+script = ExtResource("3_4sh1a")
+input = SubResource("Resource_aghng")
+modifiers = Array[ExtResource("5_bhoci")]([SubResource("Resource_pd5mj"), SubResource("Resource_xym3o"), SubResource("Resource_0x723")])
+
+[sub_resource type="Resource" id="Resource_5qhnq"]
+script = ExtResource("1_lwcvu")
+action = ExtResource("18_gl4hd")
+input_mappings = Array[ExtResource("3_4sh1a")]([SubResource("Resource_4chjg")])
+metadata/_guide_input_mappings_collapsed = false
+
+[resource]
+script = ExtResource("20_yqpyl")
+mappings = Array[ExtResource("1_lwcvu")]([SubResource("Resource_dp3g1"), SubResource("Resource_1xaqf"), SubResource("Resource_e0bl2"), SubResource("Resource_vq18b"), SubResource("Resource_cinbs"), SubResource("Resource_3t21u"), SubResource("Resource_5qhnq")])

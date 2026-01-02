@@ -1,18 +1,25 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1mt0xkw8x8bx"]
+[gd_scene load_steps=28 format=3 uid="uid://b1mt0xkw8x8bx"]
 
 [ext_resource type="PackedScene" uid="uid://conoirvjdhcuy" path="res://tree/tree.tscn" id="1_uwhke"]
 [ext_resource type="Script" uid="uid://1rc31kpmc614" path="res://world/game.gd" id="1_xlvy7"]
+[ext_resource type="Resource" uid="uid://bh3xwm7jmaipn" path="res://input/build_mode/build_mode_controller.tres" id="2_dqqhb"]
 [ext_resource type="PackedScene" uid="uid://buxsxs7xnqsgd" path="res://rock/rock.blend" id="2_l7ms7"]
-[ext_resource type="Resource" uid="uid://dkqs5e0esoul6" path="res://input/build_mode/build_mode.tres" id="2_mad0u"]
+[ext_resource type="Resource" uid="uid://dkqs5e0esoul6" path="res://input/build_mode/build_mode_keybord_and_mouse.tres" id="2_mad0u"]
 [ext_resource type="PackedScene" uid="uid://c6tcyhwajlf4p" path="res://player/player.tscn" id="3_b2tcc"]
 [ext_resource type="Resource" uid="uid://b1nqqyyftq6q8" path="res://input/walk_mode/walk_mode_controller.tres" id="3_dqqhb"]
 [ext_resource type="Resource" uid="uid://w08nn6iwxohj" path="res://input/walk_mode/switch_to_build_mode.tres" id="4_dqqhb"]
 [ext_resource type="Resource" uid="uid://dcfaiyshcmul6" path="res://input/build_mode/switch_to_walk_mode.tres" id="5_b2suy"]
+[ext_resource type="Resource" uid="uid://kt276q6jwi2h" path="res://input/walk_mode/walk_mode_keyboard_and_mouse.tres" id="5_h8lre"]
 [ext_resource type="PackedScene" uid="uid://dtqvqvnatk4t6" path="res://enemy/enemy.tscn" id="6_6lg28"]
+[ext_resource type="Resource" uid="uid://c3s086yf4nix8" path="res://input/global_controller.tres" id="6_m0cxt"]
 [ext_resource type="Script" uid="uid://d3n2j85f4rjf4" path="res://spawner/spawner.gd" id="7_15aqk"]
+[ext_resource type="Resource" uid="uid://f3ocwd80gioq" path="res://input/global_keyboard_and_mouse.tres" id="7_j34ew"]
 [ext_resource type="PackedScene" uid="uid://clrwimsjk1ujv" path="res://third_person_camera/third_person_camera.tscn" id="8_iy3gd"]
 [ext_resource type="PackedScene" uid="uid://dkr80d2pi0d41" path="res://addons/guide/debugger/guide_debugger.tscn" id="10_fyhu2"]
 [ext_resource type="PackedScene" uid="uid://bipx2p3un6hej" path="res://overhead_camera/overhead_camera.tscn" id="10_g5ifv"]
+[ext_resource type="Resource" uid="uid://dcmkj65vuedio" path="res://input/switch_to_controller.tres" id="10_p2iis"]
+[ext_resource type="Resource" uid="uid://u2tnn88sckpv" path="res://input/switch_to_keyboard_and_mouse.tres" id="11_aysyn"]
+[ext_resource type="Script" uid="uid://dhll5xm6r36bk" path="res://input/input_manager.gd" id="12_aysyn"]
 [ext_resource type="PackedScene" uid="uid://k2h0ddhxo3lp" path="res://build_mode/build_mode.tscn" id="20_inbl0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_giegt"]
@@ -48,10 +55,21 @@ filter_walkable_low_height_spans = true
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_xlvy7")
-build_mode = ExtResource("2_mad0u")
-walk_mode = ExtResource("3_dqqhb")
 switch_to_build_mode_action = ExtResource("4_dqqhb")
 switch_to_walk_mode_action = ExtResource("5_b2suy")
+
+[node name="InputManager" type="Node" parent="."]
+script = ExtResource("12_aysyn")
+build_mode_controller = ExtResource("2_dqqhb")
+walk_mode_controller = ExtResource("3_dqqhb")
+global_controller = ExtResource("6_m0cxt")
+build_mode_keyboard_and_mouse = ExtResource("2_mad0u")
+walk_mode_keyboard_and_mouse = ExtResource("5_h8lre")
+global_keyboard_and_mouse = ExtResource("7_j34ew")
+switch_to_build_mode_action = ExtResource("4_dqqhb")
+switch_to_walk_mode_action = ExtResource("5_b2suy")
+switch_to_controller_action = ExtResource("10_p2iis")
+switch_to_keyboard_and_mouse_action = ExtResource("11_aysyn")
 
 [node name="World" type="Node3D" parent="." groups=["nav_mesh"]]
 

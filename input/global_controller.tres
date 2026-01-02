@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=13 format=3 uid="uid://c3s086yf4nix8"]
+
+[ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_e0ug4"]
+[ext_resource type="Resource" uid="uid://u2tnn88sckpv" path="res://input/switch_to_keyboard_and_mouse.tres" id="2_elfwr"]
+[ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="2_h1kos"]
+[ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="3_cra1c"]
+[ext_resource type="Script" uid="uid://w3fbpe7r01n8" path="res://addons/guide/inputs/guide_input_any.gd" id="4_ylv4o"]
+[ext_resource type="Script" uid="uid://bl8rjl4oaldje" path="res://addons/guide/modifiers/guide_modifier.gd" id="5_k0emi"]
+[ext_resource type="Script" uid="uid://x74mnwgr08a7" path="res://addons/guide/triggers/guide_trigger.gd" id="6_82nq8"]
+[ext_resource type="Script" uid="uid://b52rqq28tuqpg" path="res://addons/guide/triggers/guide_trigger_pressed.gd" id="7_1lsfu"]
+
+[sub_resource type="Resource" id="Resource_ai2r7"]
+script = ExtResource("4_ylv4o")
+mouse_buttons = true
+mouse_movement = true
+keyboard = true
+mouse = true
+joy = false
+
+[sub_resource type="Resource" id="Resource_ascib"]
+script = ExtResource("7_1lsfu")
+
+[sub_resource type="Resource" id="Resource_8mh1k"]
+script = ExtResource("3_cra1c")
+input = SubResource("Resource_ai2r7")
+triggers = Array[ExtResource("6_82nq8")]([SubResource("Resource_ascib")])
+
+[sub_resource type="Resource" id="Resource_xmaxd"]
+script = ExtResource("1_e0ug4")
+action = ExtResource("2_elfwr")
+input_mappings = Array[ExtResource("3_cra1c")]([SubResource("Resource_8mh1k")])
+
+[resource]
+script = ExtResource("2_h1kos")
+mappings = Array[ExtResource("1_e0ug4")]([SubResource("Resource_xmaxd")])
+metadata/_custom_type_script = "uid://dsa1dnifd6w32"
