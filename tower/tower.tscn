@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dumjiq8xrr47d"]
 
-[ext_resource type="Script" path="res://tower/tower.gd" id="1_8t3ye"]
+[ext_resource type="Script" uid="uid://ciit5kdqf82d0" path="res://tower/tower.gd" id="1_8t3ye"]
 [ext_resource type="PackedScene" uid="uid://vdvsb80m0kj6" path="res://bolt/bolt.tscn" id="2_wj40m"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_l1m2o"]

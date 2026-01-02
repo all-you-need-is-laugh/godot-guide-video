@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GUIDEAction" load_steps=2 format=3 uid="uid://bxn3t46e0qm13"]
+
+[ext_resource type="Script" uid="uid://cluhc11vixkf1" path="res://addons/guide/guide_action.gd" id="1_no3yd"]
+
+[resource]
+script = ExtResource("1_no3yd")
+action_value_type = 3
