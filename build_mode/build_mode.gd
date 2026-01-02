@@ -20,6 +20,8 @@ var active:bool = false:
 	set(value):
 		active = value
 		visible = active
+		if not active:
+			_cancel_tower_placement()
 
 func _ready() -> void:
 	select_tower_action.triggered.connect(_select_tower)
