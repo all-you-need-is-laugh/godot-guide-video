@@ -11,9 +11,6 @@ extends Node
 @export var walk_mode_keyboard_and_mouse: GUIDEMappingContext
 @export var global_keyboard_and_mouse: GUIDEMappingContext
 
-var _current_build_mode: GUIDEMappingContext
-var _current_walk_mode: GUIDEMappingContext
-
 @export_group("Switch mode actions")
 @export var switch_to_build_mode_action:GUIDEAction
 @export var switch_to_walk_mode_action:GUIDEAction
@@ -22,52 +19,55 @@ var _current_walk_mode: GUIDEMappingContext
 @export var switch_to_controller_action:GUIDEAction
 @export var switch_to_keyboard_and_mouse_action:GUIDEAction
 
-@onready var _third_person_camera:ThirdPersonCamera = %ThirdPersonCamera
-@onready var _overhead_camera:OverheadCamera = %OverheadCamera
-@onready var _build_mode_ui:BuildModeUI = %BuildMode
-@onready var _navigation_region_3d:NavigationRegion3D = %NavigationRegion3D
+enum GameMode {
+	BUILD_MODE,
+	WALK_MODE
+}
+var _game_mode: GameMode = GameMode.WALK_MODE
 
-func _ready() -> void:
-	switch_to_controller_action.triggered.connect(_switch_to_controller)
-	switch_to_keyboard_and_mouse_action.triggered.connect(_switch_to_keyboard_and_mouse)
-	_switch_to_keyboard_and_mouse()
+enum InputMode {
+	KEYBOARD_AND_MOUSE,
+	CONTROLLER
+}
+var _input_mode: InputMode = InputMode.KEYBOARD_AND_MOUSE
 
-	switch_to_build_mode_action.triggered.connect(_switch_to_build_mode)
-	switch_to_walk_mode_action.triggered.connect(_switch_to_walk_mode)
-	_switch_to_walk_mode()
+func _ready():
+	switch_to_build_mode_action.triggered.connect(_set_game_mode.bind(GameMode.BUILD_MODE))
+	switch_to_walk_mode_action.triggered.connect(_set_game_mode.bind(GameMode.WALK_MODE))
+	switch_to_controller_action.triggered.connect(_set_input_mode.bind(InputMode.CONTROLLER))
+	switch_to_keyboard_and_mouse_action.triggered.connect(_set_input_mode.bind(InputMode.KEYBOARD_AND_MOUSE))
+	
+	_update_input()
 
-func _switch_to_build_mode() -> void:
-	GUIDE.disable_mapping_context(_current_walk_mode)
-	GUIDE.enable_mapping_context(_current_build_mode)
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+func _set_game_mode(game_mode: GameMode):
+	_game_mode = game_mode
+	_update_input()
+	
+func _set_input_mode(input_mode: InputMode):
+	_input_mode = input_mode
+	_update_input()
 
-func _switch_to_walk_mode() -> void:
-	GUIDE.disable_mapping_context(_current_build_mode)
-	GUIDE.enable_mapping_context(_current_walk_mode)
+func _update_input():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	match _input_mode:
+		InputMode.KEYBOARD_AND_MOUSE:
+			_update_to_keyboard_and_mouse()
+		InputMode.CONTROLLER:
+			_update_to_controller()
 
-func _switch_mode_inputs(new_build_mode: GUIDEMappingContext, new_walk_mode: GUIDEMappingContext) -> void:
-	var build_mode_should_be_reviewed = _current_build_mode != null and GUIDE.is_mapping_context_enabled(_current_build_mode)
-	
-	if _current_build_mode:
-		GUIDE.disable_mapping_context(_current_build_mode)
-	
-	if _current_walk_mode:
-		GUIDE.disable_mapping_context(_current_walk_mode)
-	
-	_current_build_mode = new_build_mode
-	_current_walk_mode = new_walk_mode
-	if build_mode_should_be_reviewed:
-		GUIDE.enable_mapping_context(_current_build_mode)
-	else:
-		GUIDE.enable_mapping_context(_current_walk_mode)
+func _update_to_keyboard_and_mouse():
+	GUIDE.enable_mapping_context(global_keyboard_and_mouse, true)
+	match _game_mode:
+		GameMode.BUILD_MODE:
+			GUIDE.enable_mapping_context(build_mode_keyboard_and_mouse)
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		GameMode.WALK_MODE:
+			GUIDE.enable_mapping_context(walk_mode_keyboard_and_mouse)
 
-func _switch_to_controller() -> void:
-	GUIDE.disable_mapping_context(global_keyboard_and_mouse)
-	GUIDE.enable_mapping_context(global_controller)
-	_switch_mode_inputs(build_mode_controller, walk_mode_controller)
-
-func _switch_to_keyboard_and_mouse() -> void:
-	GUIDE.disable_mapping_context(global_controller)
-	GUIDE.enable_mapping_context(global_keyboard_and_mouse)
-	_switch_mode_inputs(build_mode_keyboard_and_mouse, walk_mode_keyboard_and_mouse)
+func _update_to_controller():
+	GUIDE.enable_mapping_context(global_controller, true)
+	match _game_mode:
+		GameMode.BUILD_MODE:
+			GUIDE.enable_mapping_context(build_mode_controller)
+		GameMode.WALK_MODE:
+			GUIDE.enable_mapping_context(walk_mode_controller)
