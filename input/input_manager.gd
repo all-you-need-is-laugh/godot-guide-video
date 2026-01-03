@@ -28,13 +28,13 @@ var _current_walk_mode: GUIDEMappingContext
 @onready var _navigation_region_3d:NavigationRegion3D = %NavigationRegion3D
 
 func _ready() -> void:
-	switch_to_build_mode_action.triggered.connect(_switch_to_build_mode)
-	switch_to_walk_mode_action.triggered.connect(_switch_to_walk_mode)
-	_switch_to_walk_mode()
-
 	switch_to_controller_action.triggered.connect(_switch_to_controller)
 	switch_to_keyboard_and_mouse_action.triggered.connect(_switch_to_keyboard_and_mouse)
 	_switch_to_keyboard_and_mouse()
+
+	switch_to_build_mode_action.triggered.connect(_switch_to_build_mode)
+	switch_to_walk_mode_action.triggered.connect(_switch_to_walk_mode)
+	_switch_to_walk_mode()
 
 func _switch_to_build_mode() -> void:
 	GUIDE.disable_mapping_context(_current_walk_mode)
@@ -47,9 +47,14 @@ func _switch_to_walk_mode() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _switch_mode_inputs(new_build_mode: GUIDEMappingContext, new_walk_mode: GUIDEMappingContext) -> void:
-	var build_mode_should_be_reviewed = GUIDE.is_mapping_context_enabled(_current_build_mode)
-	GUIDE.disable_mapping_context(_current_build_mode)
-	GUIDE.disable_mapping_context(_current_walk_mode)
+	var build_mode_should_be_reviewed = _current_build_mode != null and GUIDE.is_mapping_context_enabled(_current_build_mode)
+	
+	if _current_build_mode:
+		GUIDE.disable_mapping_context(_current_build_mode)
+	
+	if _current_walk_mode:
+		GUIDE.disable_mapping_context(_current_walk_mode)
+	
 	_current_build_mode = new_build_mode
 	_current_walk_mode = new_walk_mode
 	if build_mode_should_be_reviewed:
