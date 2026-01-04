@@ -125,6 +125,8 @@ lower_threshold = 0.05
 
 [sub_resource type="Resource" id="Resource_cjap1"]
 script = ExtResource("16_lwcvu")
+initialize_from_mouse_position = true
+apply_to_mouse_position_on_deactivation = true
 scale = Vector3(1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_d8mle"]
@@ -153,6 +155,8 @@ lower_threshold = 0.05
 
 [sub_resource type="Resource" id="Resource_xym3o"]
 script = ExtResource("16_lwcvu")
+initialize_from_mouse_position = true
+apply_to_mouse_position_on_deactivation = true
 scale = Vector3(1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_0x723"]

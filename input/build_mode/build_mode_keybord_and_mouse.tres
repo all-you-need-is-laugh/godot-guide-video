@@ -163,7 +163,7 @@ modifiers = Array[ExtResource("5_h4ysb")]([SubResource("Resource_d8mle")])
 script = ExtResource("1_rga4r")
 action = ExtResource("15_yc5pw")
 input_mappings = Array[ExtResource("3_622as")]([SubResource("Resource_woicy")])
-metadata/_guide_input_mappings_collapsed = true
+metadata/_guide_input_mappings_collapsed = false
 
 [sub_resource type="Resource" id="Resource_8igxr"]
 script = ExtResource("16_y4x5o")
@@ -180,7 +180,7 @@ modifiers = Array[ExtResource("5_h4ysb")]([SubResource("Resource_0x723")])
 script = ExtResource("1_rga4r")
 action = ExtResource("18_yc5pw")
 input_mappings = Array[ExtResource("3_622as")]([SubResource("Resource_4chjg")])
-metadata/_guide_input_mappings_collapsed = true
+metadata/_guide_input_mappings_collapsed = false
 
 [resource]
 script = ExtResource("2_b4tvs")
