@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://k2h0ddhxo3lp"]
+[gd_scene load_steps=14 format=3 uid="uid://k2h0ddhxo3lp"]
 
 [ext_resource type="Script" uid="uid://b8eumyl5xqnos" path="res://build_mode/build_mode.gd" id="1_hxr4m"]
 [ext_resource type="Texture2D" uid="uid://dlrfs2y301icq" path="res://build_mode/tower_icon.svg" id="3_5qax3"]
@@ -8,6 +8,11 @@
 [ext_resource type="Resource" uid="uid://4hthdgafndf4" path="res://input/build_mode/tower_position_ui.tres" id="6_c1e2y"]
 [ext_resource type="Resource" uid="uid://bxn3t46e0qm13" path="res://input/build_mode/cancel_tower_placement.tres" id="6_ko35f"]
 [ext_resource type="PackedScene" uid="uid://dumjiq8xrr47d" path="res://tower/tower.tscn" id="6_ptldm"]
+[ext_resource type="Script" uid="uid://env2ecpsgee7" path="res://prompts/prompt_label.gd" id="9_n4hcl"]
+[ext_resource type="Script" uid="uid://cluhc11vixkf1" path="res://addons/guide/guide_action.gd" id="10_8y8w5"]
+[ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="11_dvtsv"]
+[ext_resource type="Resource" uid="uid://bh3xwm7jmaipn" path="res://input/build_mode/build_mode_controller.tres" id="12_v3g1f"]
+[ext_resource type="Resource" uid="uid://dkqs5e0esoul6" path="res://input/build_mode/build_mode_keybord_and_mouse.tres" id="13_nbwfo"]
 
 [node name="BuildMode" type="CanvasLayer"]
 script = ExtResource("1_hxr4m")
@@ -49,10 +54,15 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
 text = "1"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+script = ExtResource("9_n4hcl")
+prompt = "%s"
+actions = Array[ExtResource("10_8y8w5")]([ExtResource("3_kixqc")])
+show_in_contexts = Array[ExtResource("11_dvtsv")]([ExtResource("12_v3g1f"), ExtResource("13_nbwfo")])
 
 [node name="BlockedLabel" type="PanelContainer" parent="."]
 unique_name_in_owner = true
