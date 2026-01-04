@@ -1,12 +1,18 @@
-extends Label
+extends RichTextLabel
 
-@export var action: GUIDEAction
+@export_multiline var prompt: String = ""
+@export var actions: Array[GUIDEAction] = []
+
+var _formatter: GUIDEInputFormatter = GUIDEInputFormatter.for_active_contexts(64)
 
 func _ready():
-	var formatter: GUIDEInputFormatter = GUIDEInputFormatter.for_active_contexts()
-	text = formatter.action_as_text(action)
+	GUIDE.input_mappings_changed.connect(_update_label)
+	_update_label()
 
-#func _process(_delta):
-	#var formatter: GUIDEInputFormatter = GUIDEInputFormatter.for_active_contexts()
-	#
-	#text = formatter.action_as_text(action)
+func _update_label():
+	var icons: Array[String] = []
+	
+	for action in actions:
+		icons.append(await _formatter.action_as_richtext_async(action))
+		
+	text = prompt % icons

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b1mt0xkw8x8bx"]
+[gd_scene load_steps=32 format=3 uid="uid://b1mt0xkw8x8bx"]
 
 [ext_resource type="PackedScene" uid="uid://conoirvjdhcuy" path="res://tree/tree.tscn" id="1_uwhke"]
 [ext_resource type="Script" uid="uid://1rc31kpmc614" path="res://world/game.gd" id="1_xlvy7"]
@@ -22,7 +22,9 @@
 [ext_resource type="Script" uid="uid://dhll5xm6r36bk" path="res://input/input_manager.gd" id="12_aysyn"]
 [ext_resource type="PackedScene" uid="uid://k2h0ddhxo3lp" path="res://build_mode/build_mode.tscn" id="20_inbl0"]
 [ext_resource type="Script" uid="uid://env2ecpsgee7" path="res://prompts/prompt_label.gd" id="22_o1net"]
+[ext_resource type="Script" uid="uid://cluhc11vixkf1" path="res://addons/guide/guide_action.gd" id="23_0pnie"]
 [ext_resource type="Resource" uid="uid://c0ai3jtsno512" path="res://input/walk_mode/move.tres" id="23_3ljsx"]
+[ext_resource type="Resource" uid="uid://dspe63miujw48" path="res://input/walk_mode/shoot.tres" id="25_llyeo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_giegt"]
 albedo_color = Color(0, 0.258824, 0, 1)
@@ -302,11 +304,16 @@ offset_right = 147.0
 offset_bottom = 112.0
 grow_horizontal = 2
 
-[node name="Input Prompt" type="Label" parent="HUD/CenterContainer"]
+[node name="Input Prompt" type="RichTextLabel" parent="HUD/CenterContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
 text = "Some prompt Here"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 script = ExtResource("22_o1net")
-action = ExtResource("23_3ljsx")
+prompt = "Use %s to move, %s to fire and %s to switch to build mode."
+actions = Array[ExtResource("23_0pnie")]([ExtResource("23_3ljsx"), ExtResource("25_llyeo"), ExtResource("4_dqqhb")])
 
 [connection signal="building_built" from="BuildMode" to="." method="_on_build_mode_building_built"]
