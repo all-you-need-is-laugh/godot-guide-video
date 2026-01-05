@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=13 format=3 uid="uid://c3s086yf4nix8"]
 
 [ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_e0ug4"]
-[ext_resource type="Resource" uid="uid://u2tnn88sckpv" path="res://input/switch_to_keyboard_and_mouse.tres" id="2_elfwr"]
+[ext_resource type="Resource" uid="uid://u2tnn88sckpv" path="res://input/global/switch_to_keyboard_and_mouse.tres" id="2_elfwr"]
 [ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="2_h1kos"]
 [ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="3_cra1c"]
 [ext_resource type="Script" uid="uid://w3fbpe7r01n8" path="res://addons/guide/inputs/guide_input_any.gd" id="4_ylv4o"]
