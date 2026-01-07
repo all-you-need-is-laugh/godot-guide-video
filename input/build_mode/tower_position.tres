@@ -4,5 +4,7 @@
 
 [resource]
 script = ExtResource("1_m75b8")
+name = &"Tower position"
 action_value_type = 3
+display_name = "Tower position"
 metadata/_custom_type_script = "uid://cluhc11vixkf1"

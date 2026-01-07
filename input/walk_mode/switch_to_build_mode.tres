@@ -4,3 +4,5 @@
 
 [resource]
 script = ExtResource("1_el2yp")
+name = &"Switch to Build Mode"
+display_name = "Switch to Build Mode"

@@ -4,3 +4,5 @@
 
 [resource]
 script = ExtResource("1_xajfb")
+name = &"Shoot"
+display_name = "Shoot"

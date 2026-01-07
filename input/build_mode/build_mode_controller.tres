@@ -175,4 +175,5 @@ metadata/_guide_input_mappings_collapsed = false
 
 [resource]
 script = ExtResource("20_yqpyl")
+display_name = "Build Mode"
 mappings = Array[ExtResource("1_lwcvu")]([SubResource("Resource_dp3g1"), SubResource("Resource_1xaqf"), SubResource("Resource_e0bl2"), SubResource("Resource_vq18b"), SubResource("Resource_cinbs"), SubResource("Resource_3t21u"), SubResource("Resource_5qhnq")])

@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_nrrmy")
+name = &"Rotate Player"
 action_value_type = 1
+display_name = "Rotate Player"

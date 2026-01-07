@@ -173,5 +173,6 @@ metadata/_guide_input_mappings_collapsed = false
 
 [resource]
 script = ExtResource("19_4x5ib")
+display_name = "Walk mode"
 mappings = Array[ExtResource("1_1ly68")]([SubResource("Resource_8h5up"), SubResource("Resource_utrlr"), SubResource("Resource_5bkw4"), SubResource("Resource_5bva7"), SubResource("Resource_b6iyi"), SubResource("Resource_6o17h")])
 metadata/_guide_action_mappings_collapsed = false

@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_mbw8p")
+name = &"Move camera"
 action_value_type = 3
+display_name = "Move camera"

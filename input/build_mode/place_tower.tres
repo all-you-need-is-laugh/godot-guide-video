@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_gviky")
+name = &"Place tower"
 action_value_type = 3
+display_name = "Place tower"

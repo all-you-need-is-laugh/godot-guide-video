@@ -4,3 +4,6 @@
 
 [resource]
 script = ExtResource("1_rbywr")
+name = &"Jump"
+display_name = "Jump"
+display_category = "Walk"

@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource("1_no3yd")
 action_value_type = 3
+display_name = "Cancel tower placement"

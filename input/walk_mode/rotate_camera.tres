@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_h418p")
+name = &"Rotate Camera"
 action_value_type = 1
+display_name = "Rotate Camera"
