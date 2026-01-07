@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://1ss8677ov4ae"]
+[gd_scene load_steps=7 format=3 uid="uid://1ss8677ov4ae"]
 
 [ext_resource type="Theme" uid="uid://dvfbc16nl7dl5" path="res://ui/game_theme.tres" id="1_x8jgv"]
-[ext_resource type="Script" path="res://ui/settings_dialog.gd" id="2_hvjw8"]
+[ext_resource type="Script" uid="uid://cyhb7qbwaok5t" path="res://ui/settings_dialog.gd" id="2_hvjw8"]
+[ext_resource type="Resource" uid="uid://cc8c8f5kfjmbg" path="res://input/global/toggle_settings_dialog.tres" id="3_277tl"]
 [ext_resource type="Texture2D" uid="uid://dxegpfpbh82t7" path="res://icon.svg" id="3_lnv82"]
 
 [sub_resource type="Shader" id="Shader_lnx5d"]
@@ -24,6 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_x8jgv")
 script = ExtResource("2_hvjw8")
+toggle_settings_dialog_action = ExtResource("3_277tl")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_qgngo")
@@ -56,13 +58,16 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 tab_alignment = 1
+current_tab = 0
 
 [node name="KeyboardMouse" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/TabContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 metadata/_tab_name = "Keyboard & Mouse"
+metadata/_tab_index = 0
 
 [node name="Controller" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/TabContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1

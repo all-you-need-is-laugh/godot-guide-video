@@ -17,7 +17,7 @@ extends HBoxContainer
 		
 		
 func _ready():
-	_refresh()	
+	_refresh()
 
 
 func _refresh():

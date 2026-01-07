@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b1mt0xkw8x8bx"]
+[gd_scene load_steps=40 format=3 uid="uid://b1mt0xkw8x8bx"]
 
 [ext_resource type="PackedScene" uid="uid://conoirvjdhcuy" path="res://tree/tree.tscn" id="1_uwhke"]
 [ext_resource type="Script" uid="uid://1rc31kpmc614" path="res://world/game.gd" id="1_xlvy7"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c6tcyhwajlf4p" path="res://player/player.tscn" id="3_b2tcc"]
 [ext_resource type="Resource" uid="uid://b1nqqyyftq6q8" path="res://input/walk_mode/walk_mode_controller.tres" id="3_dqqhb"]
 [ext_resource type="Resource" uid="uid://w08nn6iwxohj" path="res://input/walk_mode/switch_to_build_mode.tres" id="4_dqqhb"]
+[ext_resource type="Resource" uid="uid://cc8c8f5kfjmbg" path="res://input/global/toggle_settings_dialog.tres" id="4_ftqqi"]
 [ext_resource type="Resource" uid="uid://dcfaiyshcmul6" path="res://input/build_mode/switch_to_walk_mode.tres" id="5_b2suy"]
 [ext_resource type="Resource" uid="uid://kt276q6jwi2h" path="res://input/walk_mode/walk_mode_keyboard_and_mouse.tres" id="5_h8lre"]
 [ext_resource type="PackedScene" uid="uid://dtqvqvnatk4t6" path="res://enemy/enemy.tscn" id="6_6lg28"]
@@ -31,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://4hthdgafndf4" path="res://input/build_mode/tower_position_ui.tres" id="28_inp7a"]
 [ext_resource type="Resource" uid="uid://q86e7eilta5h" path="res://input/build_mode/place_tower.tres" id="29_bwxdu"]
 [ext_resource type="Resource" uid="uid://bxn3t46e0qm13" path="res://input/build_mode/cancel_tower_placement.tres" id="30_lwhbe"]
+[ext_resource type="PackedScene" uid="uid://1ss8677ov4ae" path="res://ui/settings_dialog.tscn" id="32_lwhbe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_giegt"]
 albedo_color = Color(0, 0.258824, 0, 1)
@@ -67,6 +69,7 @@ filter_walkable_low_height_spans = true
 script = ExtResource("1_xlvy7")
 switch_to_build_mode_action = ExtResource("4_dqqhb")
 switch_to_walk_mode_action = ExtResource("5_b2suy")
+toggle_settings_dialog_action = ExtResource("4_ftqqi")
 
 [node name="InputManager" type="Node" parent="."]
 script = ExtResource("12_aysyn")
@@ -80,6 +83,7 @@ switch_to_build_mode_action = ExtResource("4_dqqhb")
 switch_to_walk_mode_action = ExtResource("5_b2suy")
 switch_to_controller_action = ExtResource("10_p2iis")
 switch_to_keyboard_and_mouse_action = ExtResource("11_aysyn")
+toggle_settings_dialog_action = ExtResource("4_ftqqi")
 
 [node name="World" type="Node3D" parent="." groups=["nav_mesh"]]
 
@@ -295,6 +299,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="DebugLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="GuideDebugger" parent="DebugLayer" instance=ExtResource("10_fyhu2")]
 
@@ -343,5 +348,10 @@ Use %s to move the camera, %s to move tower, %s to place a tower and %s to cance
 Use %s to switch to walk mode.[/center]"
 actions = Array[ExtResource("23_0pnie")]([ExtResource("27_k8wd0"), ExtResource("28_inp7a"), ExtResource("29_bwxdu"), ExtResource("30_lwhbe"), ExtResource("5_b2suy")])
 show_in_contexts = Array[ExtResource("27_bwxdu")]([ExtResource("2_mad0u"), ExtResource("2_dqqhb")])
+
+[node name="Settings UI" type="CanvasLayer" parent="."]
+
+[node name="SettingsDialog" parent="Settings UI" instance=ExtResource("32_lwhbe")]
+visible = false
 
 [connection signal="building_built" from="BuildMode" to="." method="_on_build_mode_building_built"]

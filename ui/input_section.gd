@@ -17,4 +17,3 @@ func _refresh():
 		return
 		
 	_title.text = title
-
