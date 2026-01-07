@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3gb24c5ackyi"]
 
-[ext_resource type="Script" path="res://ui/input_binding.gd" id="1_v7bby"]
+[ext_resource type="Script" uid="uid://cy7mb15helm0s" path="res://ui/input_binding.gd" id="1_v7bby"]
 
 [node name="InputBinding" type="HBoxContainer"]
 anchors_preset = 15
