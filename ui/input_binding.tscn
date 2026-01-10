@@ -11,12 +11,15 @@ grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 script = ExtResource("1_v7bby")
+title = "Default Title"
+bound_input = "[Input]"
 
 [node name="Title" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"HeaderMedium"
+text = "Default Title"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -27,6 +30,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_type_variation = &"HeaderMedium"
 bbcode_enabled = true
+text = "[Input]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
