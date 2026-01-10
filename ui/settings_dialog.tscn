@@ -1,13 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://1ss8677ov4ae"]
+[gd_scene load_steps=15 format=3 uid="uid://1ss8677ov4ae"]
 
 [ext_resource type="Theme" uid="uid://dvfbc16nl7dl5" path="res://ui/game_theme.tres" id="1_x8jgv"]
 [ext_resource type="Script" uid="uid://cyhb7qbwaok5t" path="res://ui/settings_dialog.gd" id="2_hvjw8"]
 [ext_resource type="Resource" uid="uid://cc8c8f5kfjmbg" path="res://input/global/toggle_settings_dialog.tres" id="3_277tl"]
 [ext_resource type="Texture2D" uid="uid://dxegpfpbh82t7" path="res://icon.svg" id="3_lnv82"]
 [ext_resource type="Resource" uid="uid://kt276q6jwi2h" path="res://input/walk_mode/walk_mode_keyboard_and_mouse.tres" id="4_jejyy"]
+[ext_resource type="Resource" uid="uid://f3ocwd80gioq" path="res://input/global/global_keyboard_and_mouse.tres" id="4_pwq7w"]
+[ext_resource type="Resource" uid="uid://c3s086yf4nix8" path="res://input/global/global_controller.tres" id="5_am1nb"]
 [ext_resource type="Resource" uid="uid://dkqs5e0esoul6" path="res://input/build_mode/build_mode_keybord_and_mouse.tres" id="5_xbfls"]
+[ext_resource type="Resource" uid="uid://b1nqqyyftq6q8" path="res://input/walk_mode/walk_mode_controller.tres" id="7_1s43h"]
 [ext_resource type="PackedScene" uid="uid://d3gb24c5ackyi" path="res://ui/input_binding.tscn" id="7_sm56u"]
 [ext_resource type="PackedScene" uid="uid://5naf2ukneu77" path="res://ui/input_section.tscn" id="7_xbfls"]
+[ext_resource type="Resource" uid="uid://bh3xwm7jmaipn" path="res://input/build_mode/build_mode_controller.tres" id="9_l17ga"]
 
 [sub_resource type="Shader" id="Shader_lnx5d"]
 code = "shader_type canvas_item;
@@ -30,8 +34,12 @@ grow_vertical = 2
 theme = ExtResource("1_x8jgv")
 script = ExtResource("2_hvjw8")
 toggle_settings_dialog_action = ExtResource("3_277tl")
+global_keyboard_and_mouse_context = ExtResource("4_pwq7w")
+global_controller_context = ExtResource("5_am1nb")
 walk_mode_keyboard_and_mouse_context = ExtResource("4_jejyy")
+walk_mode_controller_context = ExtResource("7_1s43h")
 build_mode_keyboard_and_mouse_context = ExtResource("5_xbfls")
+build_mode_controller_context = ExtResource("9_l17ga")
 section_scene = ExtResource("7_xbfls")
 binding_scene = ExtResource("7_sm56u")
 
