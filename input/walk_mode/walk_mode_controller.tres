@@ -33,6 +33,7 @@ lower_threshold = 0.05
 
 [sub_resource type="Resource" id="Resource_kio0a"]
 script = ExtResource("3_38017")
+override_action_settings = true
 input = SubResource("Resource_r5ej3")
 modifiers = Array[ExtResource("5_jwqgw")]([SubResource("Resource_38017"), SubResource("Resource_sq7uh")])
 
@@ -143,10 +144,10 @@ triggers = Array[ExtResource("8_gyh3c")]([SubResource("Resource_6bvfi")])
 script = ExtResource("1_r5ej3")
 action = ExtResource("18_x6g4t")
 input_mappings = Array[ExtResource("3_38017")]([SubResource("Resource_b86pk")])
-metadata/_guide_input_mappings_collapsed = true
+metadata/_guide_input_mappings_collapsed = false
 
 [resource]
 script = ExtResource("19_uhdqm")
-display_name = "Walk Mode"
+display_name = "Walking"
 mappings = Array[ExtResource("1_r5ej3")]([SubResource("Resource_8h5up"), SubResource("Resource_utrlr"), SubResource("Resource_5bkw4"), SubResource("Resource_5bva7"), SubResource("Resource_b6iyi"), SubResource("Resource_6o17h")])
 metadata/_guide_action_mappings_collapsed = false

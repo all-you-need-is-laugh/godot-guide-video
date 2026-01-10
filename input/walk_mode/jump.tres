@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_rbywr")
 name = &"Jump"
+is_remappable = true
 display_name = "Jump"
 display_category = "Walk"

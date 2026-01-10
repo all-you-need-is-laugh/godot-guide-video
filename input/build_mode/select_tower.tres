@@ -6,4 +6,5 @@
 script = ExtResource("1_7utoc")
 name = &"Select tower"
 action_value_type = 3
+is_remappable = true
 display_name = "Select tower"

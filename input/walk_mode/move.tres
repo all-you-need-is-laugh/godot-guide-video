@@ -6,4 +6,5 @@
 script = ExtResource("1_i63m8")
 name = &"Move"
 action_value_type = 3
+is_remappable = true
 display_name = "Move"

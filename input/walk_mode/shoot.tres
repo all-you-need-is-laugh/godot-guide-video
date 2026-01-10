@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_xajfb")
 name = &"Shoot"
+is_remappable = true
 display_name = "Shoot"

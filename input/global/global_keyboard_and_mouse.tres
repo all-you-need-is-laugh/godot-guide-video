@@ -51,5 +51,6 @@ input_mappings = Array[ExtResource("3_h53i0")]([SubResource("Resource_mnur5")])
 
 [resource]
 script = ExtResource("2_4mg8m")
+display_name = "Global"
 mappings = Array[ExtResource("1_gvp6b")]([SubResource("Resource_1231h"), SubResource("Resource_ka4qj")])
 metadata/_custom_type_script = "uid://dsa1dnifd6w32"

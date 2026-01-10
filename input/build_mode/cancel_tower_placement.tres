@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_no3yd")
 action_value_type = 3
+is_remappable = true
 display_name = "Cancel tower placement"

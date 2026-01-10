@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_lbbsq")
 name = &"Switch to walk mode"
+is_remappable = true
 display_name = "Switch to walk mode"

@@ -33,6 +33,9 @@ script = ExtResource("7_nkelc")
 
 [sub_resource type="Resource" id="Resource_0hs47"]
 script = ExtResource("3_27i1b")
+override_action_settings = true
+is_remappable = true
+display_name = "Move Forward"
 input = SubResource("Resource_vjnfi")
 modifiers = Array[ExtResource("5_fod6g")]([SubResource("Resource_e605k"), SubResource("Resource_q3i7e")])
 
@@ -46,6 +49,9 @@ order = 1
 
 [sub_resource type="Resource" id="Resource_fn3vg"]
 script = ExtResource("3_27i1b")
+override_action_settings = true
+is_remappable = true
+display_name = "Move Back"
 input = SubResource("Resource_hh5xe")
 modifiers = Array[ExtResource("5_fod6g")]([SubResource("Resource_mm3hy")])
 
@@ -58,6 +64,9 @@ script = ExtResource("7_nkelc")
 
 [sub_resource type="Resource" id="Resource_1y3sl"]
 script = ExtResource("3_27i1b")
+override_action_settings = true
+is_remappable = true
+display_name = "Move Left"
 input = SubResource("Resource_it6in")
 modifiers = Array[ExtResource("5_fod6g")]([SubResource("Resource_xp6ni")])
 
@@ -67,13 +76,16 @@ key = 68
 
 [sub_resource type="Resource" id="Resource_3vt7h"]
 script = ExtResource("3_27i1b")
+override_action_settings = true
+is_remappable = true
+display_name = "Move Right"
 input = SubResource("Resource_2y8a2")
 
 [sub_resource type="Resource" id="Resource_8h5up"]
 script = ExtResource("1_1ly68")
 action = ExtResource("2_ds5iw")
 input_mappings = Array[ExtResource("3_27i1b")]([SubResource("Resource_0hs47"), SubResource("Resource_fn3vg"), SubResource("Resource_1y3sl"), SubResource("Resource_3vt7h")])
-metadata/_guide_input_mappings_collapsed = true
+metadata/_guide_input_mappings_collapsed = false
 
 [sub_resource type="Resource" id="Resource_ow1ia"]
 script = ExtResource("10_coh60")
@@ -94,7 +106,7 @@ modifiers = Array[ExtResource("5_fod6g")]([SubResource("Resource_q2qo8"), SubRes
 script = ExtResource("1_1ly68")
 action = ExtResource("9_8hfph")
 input_mappings = Array[ExtResource("3_27i1b")]([SubResource("Resource_o2iy7")])
-metadata/_guide_input_mappings_collapsed = true
+metadata/_guide_input_mappings_collapsed = false
 
 [sub_resource type="Resource" id="Resource_ycl1p"]
 script = ExtResource("10_coh60")
@@ -116,7 +128,7 @@ modifiers = Array[ExtResource("5_fod6g")]([SubResource("Resource_tqd4h"), SubRes
 script = ExtResource("1_1ly68")
 action = ExtResource("13_q88xs")
 input_mappings = Array[ExtResource("3_27i1b")]([SubResource("Resource_pwh1d")])
-metadata/_guide_input_mappings_collapsed = true
+metadata/_guide_input_mappings_collapsed = false
 
 [sub_resource type="Resource" id="Resource_h8kdm"]
 script = ExtResource("15_2s1lh")
@@ -151,7 +163,7 @@ triggers = Array[ExtResource("8_4kbmj")]([SubResource("Resource_yachw")])
 script = ExtResource("1_1ly68")
 action = ExtResource("17_br8g2")
 input_mappings = Array[ExtResource("3_27i1b")]([SubResource("Resource_yfeug")])
-metadata/_guide_input_mappings_collapsed = true
+metadata/_guide_input_mappings_collapsed = false
 
 [sub_resource type="Resource" id="Resource_dytx5"]
 script = ExtResource("4_hki45")
@@ -173,6 +185,6 @@ metadata/_guide_input_mappings_collapsed = false
 
 [resource]
 script = ExtResource("19_4x5ib")
-display_name = "Walk mode"
+display_name = "Walking"
 mappings = Array[ExtResource("1_1ly68")]([SubResource("Resource_8h5up"), SubResource("Resource_utrlr"), SubResource("Resource_5bkw4"), SubResource("Resource_5bva7"), SubResource("Resource_b6iyi"), SubResource("Resource_6o17h")])
 metadata/_guide_action_mappings_collapsed = false
