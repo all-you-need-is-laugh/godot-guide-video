@@ -16,7 +16,8 @@ extends MarginContainer
 @export var binding_scene:PackedScene
 
 @onready var _tab_container:TabContainer = %TabContainer
-@onready var _keyboard_mouse_tab: VBoxContainer = %KeyboardMouse
+@onready var _keyboard_mouse_walk_tab: VBoxContainer = %KMWalkModeContainer
+@onready var _keyboard_mouse_build_tab: VBoxContainer = %KMBuildModeContainer
 @onready var _controller_tab: VBoxContainer = %Controller
 
 var _remapper := GUIDERemapper.new()
@@ -50,9 +51,9 @@ func _display_input_mappings():
 	var remapping_config := GUIDERemappingConfig.new();
 	_remapper.initialize(contexts, remapping_config)
 	
-	_build_section(_keyboard_mouse_tab, global_keyboard_and_mouse_context)
-	_build_section(_keyboard_mouse_tab, walk_mode_keyboard_and_mouse_context)
-	_build_section(_keyboard_mouse_tab, build_mode_keyboard_and_mouse_context)
+	_build_section(_keyboard_mouse_walk_tab, global_keyboard_and_mouse_context)
+	_build_section(_keyboard_mouse_walk_tab, walk_mode_keyboard_and_mouse_context)
+	_build_section(_keyboard_mouse_build_tab, build_mode_keyboard_and_mouse_context)
 	
 	_build_section(_controller_tab, global_controller_context)
 	_build_section(_controller_tab, walk_mode_controller_context)
