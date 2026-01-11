@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://1ss8677ov4ae"]
+[gd_scene load_steps=22 format=3 uid="uid://1ss8677ov4ae"]
 
 [ext_resource type="Theme" uid="uid://dvfbc16nl7dl5" path="res://ui/game_theme.tres" id="1_x8jgv"]
 [ext_resource type="Script" uid="uid://cyhb7qbwaok5t" path="res://ui/settings_dialog.gd" id="2_hvjw8"]
@@ -12,6 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://d3gb24c5ackyi" path="res://ui/input_binding.tscn" id="7_sm56u"]
 [ext_resource type="PackedScene" uid="uid://5naf2ukneu77" path="res://ui/input_section.tscn" id="7_xbfls"]
 [ext_resource type="Resource" uid="uid://bh3xwm7jmaipn" path="res://input/build_mode/build_mode_controller.tres" id="9_l17ga"]
+[ext_resource type="Script" uid="uid://db27ccgomq455" path="res://addons/guide/remapping/guide_input_detector.gd" id="13_am1nb"]
+[ext_resource type="Script" uid="uid://ccvqqvfooyvn0" path="res://addons/guide/inputs/guide_input.gd" id="14_1s43h"]
+[ext_resource type="Script" uid="uid://cw71o87tvdx3q" path="res://addons/guide/inputs/guide_input_key.gd" id="15_4npl2"]
+[ext_resource type="Script" uid="uid://rvttn472ix6v" path="res://addons/guide/inputs/guide_input_joy_button.gd" id="16_q2l44"]
 
 [sub_resource type="Shader" id="Shader_lnx5d"]
 code = "shader_type canvas_item;
@@ -23,6 +27,27 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qgngo"]
 shader = SubResource("Shader_lnx5d")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwq7w"]
+bg_color = Color(0.24115604, 0.24115607, 0.24115595, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 50.0
+expand_margin_top = 20.0
+expand_margin_right = 50.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="Resource" id="Resource_eu7wq"]
+script = ExtResource("15_4npl2")
+key = 4194305
+metadata/_custom_type_script = "uid://cw71o87tvdx3q"
+
+[sub_resource type="Resource" id="Resource_80jjj"]
+script = ExtResource("16_q2l44")
+button = 4
+metadata/_custom_type_script = "uid://rvttn472ix6v"
 
 [node name="SettingsDialog" type="MarginContainer"]
 process_mode = 3
@@ -40,8 +65,8 @@ walk_mode_keyboard_and_mouse_context = ExtResource("4_jejyy")
 walk_mode_controller_context = ExtResource("7_1s43h")
 build_mode_keyboard_and_mouse_context = ExtResource("5_xbfls")
 build_mode_controller_context = ExtResource("9_l17ga")
-section_scene = ExtResource("7_xbfls")
-binding_scene = ExtResource("7_sm56u")
+InputSectionScene = ExtResource("7_xbfls")
+InputBindingScene = ExtResource("7_sm56u")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_qgngo")
@@ -95,3 +120,29 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="InputPrompt" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="InputPrompt"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="InputPrompt/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pwq7w")
+
+[node name="Label" type="Label" parent="InputPrompt/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Actuate the control now"
+
+[node name="InputDetector" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("13_am1nb")
+abort_detection_on = Array[ExtResource("14_1s43h")]([SubResource("Resource_eu7wq"), SubResource("Resource_80jjj")])
+metadata/_custom_type_script = "uid://db27ccgomq455"
+
+[connection signal="input_detected" from="InputDetector" to="." method="_on_input_detector_input_detected"]
