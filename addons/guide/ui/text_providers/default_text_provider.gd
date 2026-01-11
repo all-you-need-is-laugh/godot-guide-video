@@ -23,6 +23,10 @@ func get_text(input:GUIDEInput, options:GUIDEInputFormattingOptions) -> String:
 		# this is not supported on mobile, so we have to check		
 		if _is_on_desktop:
 			the_key = DisplayServer.keyboard_get_label_from_physical(input.key)
+
+			# Replace with custom text provider
+			if not the_key:
+				the_key = input.key
 			
 		
 		result.append(_format(OS.get_keycode_string(the_key)))

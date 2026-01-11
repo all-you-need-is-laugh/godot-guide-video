@@ -28,6 +28,11 @@ func render(input:GUIDEInput, options:GUIDEInputFormattingOptions) -> void:
 	_nine_patch_rect.patch_margin_bottom = _style.patch_margin_bottom
 	
 	var label_key:Key = DisplayServer.keyboard_get_label_from_physical(key)
+
+	# Replace with custom renderer
+	if not label_key:
+		label_key = key
+
 	_label.text = OS.get_keycode_string(label_key).strip_edges()
 	_label.add_theme_color_override("font_color", _style.font_color)
 	_label.add_theme_font_override("font", _style.font)
