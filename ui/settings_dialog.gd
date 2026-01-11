@@ -16,9 +16,9 @@ extends MarginContainer
 @export var InputBindingScene:PackedScene
 
 @onready var _tab_container:TabContainer = %TabContainer
-@onready var _keyboard_mouse_walk_tab: VBoxContainer = %KMWalkModeContainer
-@onready var _keyboard_mouse_build_tab: VBoxContainer = %KMBuildModeContainer
-@onready var _controller_tab: VBoxContainer = %Controller
+@onready var _keyboard_mouse_walk_container: VBoxContainer = %KMWalkModeContainer
+@onready var _keyboard_mouse_build_container: VBoxContainer = %KMBuildModeContainer
+@onready var _controller_container: VBoxContainer = %Controller
 @onready var _input_prompt: MarginContainer = %InputPrompt
 @onready var _input_detector: GUIDEInputDetector = %InputDetector
 
@@ -55,30 +55,30 @@ func _build_input_mappings():
 	var remapping_config := GUIDERemappingConfig.new();
 	_remapper.initialize(contexts, remapping_config)
 	
-	_build_section(_keyboard_mouse_walk_tab, global_keyboard_and_mouse_context)
-	_build_section(_keyboard_mouse_walk_tab, walk_mode_keyboard_and_mouse_context)
-	_build_section(_keyboard_mouse_build_tab, build_mode_keyboard_and_mouse_context)
+	_build_section(_keyboard_mouse_walk_container, global_keyboard_and_mouse_context)
+	_build_section(_keyboard_mouse_walk_container, walk_mode_keyboard_and_mouse_context)
+	_build_section(_keyboard_mouse_build_container, build_mode_keyboard_and_mouse_context)
 	#
-	_build_section(_controller_tab, global_controller_context)
-	_build_section(_controller_tab, walk_mode_controller_context)
-	_build_section(_controller_tab, build_mode_controller_context)
+	_build_section(_controller_container, global_controller_context)
+	_build_section(_controller_container, walk_mode_controller_context)
+	_build_section(_controller_container, build_mode_controller_context)
 	
 	_input_mapping_built = true
 
-func _build_section(tab_container:Container, mapping_context:GUIDEMappingContext):
+func _build_section(container:Container, mapping_context:GUIDEMappingContext):
 	var remappable_items := _remapper.get_remappable_items(mapping_context)
 	
 	if !remappable_items.size():
 		return
 	
 	var section = InputSectionScene.instantiate()
-	tab_container.add_child(section)
+	container.add_child(section)
 	section.title = mapping_context.display_name
 	
 	for item in remappable_items:
-		_build_input_line(tab_container, item)
+		_build_input_line(container, item)
 
-func _build_input_line(tab_container:Container, item:GUIDERemapper.ConfigItem):
+func _build_input_line(container:Container, item:GUIDERemapper.ConfigItem):
 	var input_binding:InputBinding = InputBindingScene.instantiate()
 	input_binding.title = item.display_name
 
@@ -87,7 +87,7 @@ func _build_input_line(tab_container:Container, item:GUIDERemapper.ConfigItem):
 	input_binding.binding_change_requested.connect(_on_binding_change_requested.bind(item))
 	item.changed.connect(_set_bound_input_icon.bind(input_binding))
 	
-	tab_container.add_child(input_binding)
+	container.add_child(input_binding)
 
 func _set_bound_input_icon(input:GUIDEInput, input_binding:InputBinding):
 	var icon := await _input_formatter.input_as_richtext_async(input)
