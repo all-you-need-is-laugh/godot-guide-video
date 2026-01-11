@@ -28,7 +28,6 @@ var _input_mapping_built := false
 
 func _ready():
 	toggle_settings_dialog_action.triggered.connect(_toggle_vibility)
-	_tab_container.set_tab_title(0, "Keyboard & Mouse" )
 	
 	if get_parent() == get_tree().root:
 		_build_input_mappings()
@@ -37,7 +36,16 @@ func _toggle_vibility():
 	visible = not visible
 	
 	if visible:
+		_set_active_tab()
 		_build_input_mappings()
+
+func _set_active_tab():
+	if GUIDE.is_mapping_context_enabled(global_keyboard_and_mouse_context):
+		_tab_container.current_tab = 0
+	else:
+		_tab_container.current_tab = 1
+	
+	_tab_container.get_tab_bar().grab_focus()
 
 func _build_input_mappings():
 	if _input_mapping_built:
