@@ -38,6 +38,8 @@ func _toggle_vibility():
 	if visible:
 		_set_active_tab()
 		_build_input_mappings()
+	else:
+		_apply_new_config()
 
 func _set_active_tab():
 	if GUIDE.is_mapping_context_enabled(global_keyboard_and_mouse_context):
@@ -145,3 +147,8 @@ func _on_binding_change_requested(item: GUIDERemapper.ConfigItem):
 			_remapper.set_bound_input(collision, null)
 	
 	_remapper.set_bound_input(item, detected_input)
+
+func _apply_new_config():
+	print("apply_new_config!")
+	var new_config := _remapper.get_mapping_config()
+	GUIDE.set_remapping_config(new_config)
