@@ -1,7 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://b1mt0xkw8x8bx"]
+[gd_scene load_steps=39 format=3 uid="uid://b1mt0xkw8x8bx"]
 
 [ext_resource type="PackedScene" uid="uid://conoirvjdhcuy" path="res://tree/tree.tscn" id="1_uwhke"]
-[ext_resource type="Script" path="res://world/game.gd" id="1_xlvy7"]
+[ext_resource type="Script" uid="uid://bnqbk00a3b6p1" path="res://world/game.gd" id="1_xlvy7"]
 [ext_resource type="Resource" uid="uid://cpes68yhwrtsg" path="res://input/walk_mode/walk_mode_controller.tres" id="2_4adbx"]
 [ext_resource type="PackedScene" uid="uid://buxsxs7xnqsgd" path="res://rock/rock.blend" id="2_l7ms7"]
 [ext_resource type="PackedScene" uid="uid://c6tcyhwajlf4p" path="res://player/player.tscn" id="3_b2tcc"]
@@ -12,9 +12,9 @@
 [ext_resource type="Resource" uid="uid://1tvdmjdopt23" path="res://input/build_mode/switch_to_walk_mode.tres" id="5_6op3s"]
 [ext_resource type="Resource" uid="uid://cofwp7cv7f3bn" path="res://input/walk_mode/shoot.tres" id="6_5p81j"]
 [ext_resource type="PackedScene" uid="uid://dtqvqvnatk4t6" path="res://enemy/enemy.tscn" id="6_6lg28"]
-[ext_resource type="Script" path="res://input/input_manager.gd" id="6_fh1b0"]
+[ext_resource type="Script" uid="uid://dw6i0istbil8x" path="res://input/input_manager.gd" id="6_fh1b0"]
 [ext_resource type="Resource" uid="uid://4nww50j03u7" path="res://input/build_mode/build_mode_keyboard_and_mouse.tres" id="6_iim71"]
-[ext_resource type="Script" path="res://spawner/spawner.gd" id="7_15aqk"]
+[ext_resource type="Script" uid="uid://d3n2j85f4rjf4" path="res://spawner/spawner.gd" id="7_15aqk"]
 [ext_resource type="Resource" uid="uid://delmxlhnhia6" path="res://input/global/global_keyboard_and_mouse.tres" id="7_ndg6c"]
 [ext_resource type="PackedScene" uid="uid://clrwimsjk1ujv" path="res://third_person_camera/third_person_camera.tscn" id="8_iy3gd"]
 [ext_resource type="Resource" uid="uid://doloftpp32uym" path="res://input/global/switch_to_controller.tres" id="9_mcvb8"]
@@ -23,10 +23,12 @@
 [ext_resource type="Resource" uid="uid://beji85xe7m32l" path="res://input/global/switch_to_keyboard_and_mouse.tres" id="10_p4wc3"]
 [ext_resource type="PackedScene" uid="uid://dkr80d2pi0d41" path="res://addons/guide/debugger/guide_debugger.tscn" id="11_60vq5"]
 [ext_resource type="PackedScene" uid="uid://k2h0ddhxo3lp" path="res://build_mode/build_mode.tscn" id="20_inbl0"]
-[ext_resource type="Script" path="res://prompts/prompt_label.gd" id="23_olujm"]
+[ext_resource type="Script" uid="uid://bqnrcqkrelvhv" path="res://prompts/prompt_label.gd" id="23_olujm"]
 [ext_resource type="Resource" uid="uid://dn7txoivfh8kg" path="res://input/build_mode/tower_position.tres" id="24_b4ckl"]
+[ext_resource type="Script" uid="uid://cluhc11vixkf1" path="res://addons/guide/guide_action.gd" id="24_lwhbe"]
 [ext_resource type="Resource" uid="uid://b6yqgtekcyp68" path="res://input/walk_mode/move.tres" id="24_ob3kw"]
 [ext_resource type="Resource" uid="uid://buv48c00jlaej" path="res://input/build_mode/move_camera.tres" id="25_6ceyi"]
+[ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="26_ftqqi"]
 [ext_resource type="Resource" uid="uid://bdgovsaqie57w" path="res://input/build_mode/place_tower.tres" id="26_u0o5o"]
 [ext_resource type="Resource" uid="uid://dufx2htc6bnqi" path="res://input/build_mode/cancel_tower_placement.tres" id="27_g34jt"]
 [ext_resource type="PackedScene" uid="uid://1ss8677ov4ae" path="res://ui/settings_dialog.tscn" id="29_rbi6q"]
@@ -321,8 +323,8 @@ scroll_active = false
 autowrap_mode = 0
 script = ExtResource("23_olujm")
 prompt = "Use %s to move, %s to fire and %s to switch to build mode."
-actions = Array[Resource("res://addons/guide/guide_action.gd")]([ExtResource("24_ob3kw"), ExtResource("6_5p81j"), ExtResource("4_wmtob")])
-show_in_contexts = Array[Resource("res://addons/guide/guide_mapping_context.gd")]([ExtResource("2_4adbx"), ExtResource("3_ixd2j")])
+actions = Array[ExtResource("24_lwhbe")]([ExtResource("24_ob3kw"), ExtResource("6_5p81j"), ExtResource("4_wmtob")])
+show_in_contexts = Array[ExtResource("26_ftqqi")]([ExtResource("2_4adbx"), ExtResource("3_ixd2j")])
 
 [node name="InputPromptBuildMode" type="RichTextLabel" parent="HUD/CenterContainer"]
 custom_minimum_size = Vector2(1200, 0)
@@ -334,8 +336,8 @@ fit_content = true
 scroll_active = false
 script = ExtResource("23_olujm")
 prompt = "[center]Select a tower from the hotbar below. Use %s to move the camera, %s to move the tower, %s to place a tower and %s to cancel placement.[/center]"
-actions = Array[Resource("res://addons/guide/guide_action.gd")]([ExtResource("25_6ceyi"), ExtResource("24_b4ckl"), ExtResource("26_u0o5o"), ExtResource("27_g34jt")])
-show_in_contexts = Array[Resource("res://addons/guide/guide_mapping_context.gd")]([ExtResource("3_idak0"), ExtResource("6_iim71")])
+actions = Array[ExtResource("24_lwhbe")]([ExtResource("25_6ceyi"), ExtResource("24_b4ckl"), ExtResource("26_u0o5o"), ExtResource("27_g34jt")])
+show_in_contexts = Array[ExtResource("26_ftqqi")]([ExtResource("3_idak0"), ExtResource("6_iim71")])
 
 [node name="DebugLayer" type="CanvasLayer" parent="."]
 visible = false
